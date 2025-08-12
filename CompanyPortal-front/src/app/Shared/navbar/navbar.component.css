@@ -1,0 +1,32 @@
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+:host ::ng-deep .p-menubar {
+  padding: 0.5rem 2rem;
+  background: white;
+  border: none;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .p-avatar {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+:host ::ng-deep .p-avatar:hover {
+  transform: scale(1.05);
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+:host ::ng-deep .p-menubar-end {
+  margin-left: auto;
+}

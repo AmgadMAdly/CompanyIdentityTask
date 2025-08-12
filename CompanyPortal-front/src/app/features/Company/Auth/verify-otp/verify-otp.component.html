@@ -1,0 +1,60 @@
+<div class="page">
+  <p-card>
+    <h2 class="text-center">Verify OTP</h2>
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-info">
+        <p>We sent a 6-digit code to <strong>{{ email }}</strong></p>
+      </div>
+
+      <div class="form-field">
+        <label for="otp">Enter OTP (6 digits)*</label>
+        <input
+          pInputText
+          id="otp"
+          formControlName="otp"
+          maxlength="6"
+          [ngClass]="{'ng-dirty': otpForm.get('otp')?.touched && otpForm.get('otp')?.errors}"
+        />
+        <small class="error-message" *ngIf="otpForm.get('otp')?.touched">
+          {{ getErrorMessage() }}
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <p-button
+          label="Verify"
+          type="submit"
+          [disabled]="otpForm.invalid || isLoading"
+          [loading]="isLoading">
+        </p-button>
+      </div>
+
+      <div class="text-center">
+        <button
+          type="button"
+          class="p-link"
+          (click)="resendOtp()"
+          [disabled]="isLoading">
+          Didn't receive the code? Click here to resend
+        </button>
+      </div>
+    </form>
+  </p-card>
+</div>
+  <p-card header="Verify OTP">
+    <form [formGroup]="otpForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-field">
+        <label for="otp">Enter OTP (6 digits)*</label>
+        <input pInputText id="otp" formControlName="otp" maxlength="6" />
+        <small class="error-message" *ngIf="otpForm.get('otp')?.touched">{{ getErrorMessage() }}</small>
+      </div>
+
+      <div class="form-info">
+        <small>We sent a 6-digit code to {{ email }}</small>
+      </div>
+
+      <div class="form-actions">
+        <p-button label="Verify" type="submit" [disabled]="otpForm.invalid || isLoading" [loading]="isLoading"></p-button>
+      </div>
+    </form>
+  </p-card>

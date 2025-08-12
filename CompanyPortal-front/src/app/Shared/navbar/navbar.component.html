@@ -1,0 +1,21 @@
+<div class="navbar">
+  <p-menubar [model]="menuItems">
+    <ng-template pTemplate="start">
+      <img src="  /logotest.png" height="40" class="mr-2" alt="Company Logo">
+      <h3>Company Portal</h3>
+    </ng-template>
+    <ng-template pTemplate="end">
+      @if (authService.isAuthenticated()) {
+        <div class="user-menu">
+          <p-avatar icon="pi pi-user" shape="circle" (click)="userMenu.toggle($event)" styleClass="mr-2"></p-avatar>
+          <p-menu #userMenu [popup]="true" [model]="userMenuItems"></p-menu>
+        </div>
+      } @else {
+        <div class="auth-buttons">
+          <p-button label="Login" icon="pi pi-sign-in" styleClass="p-button-text mr-2" routerLink="/auth/login"></p-button>
+          <p-button label="Register" icon="pi pi-user-plus" routerLink="/auth/register"></p-button>
+        </div>
+      }
+    </ng-template>
+  </p-menubar>
+</div>

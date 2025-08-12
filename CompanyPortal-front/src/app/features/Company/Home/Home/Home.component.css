@@ -1,0 +1,58 @@
+.page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo.preview {
+  border: 2px solid #2196F3;
+}
+
+.logo-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.profile-details p {
+  margin: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.profile-details p:last-child {
+  border-bottom: none;
+}

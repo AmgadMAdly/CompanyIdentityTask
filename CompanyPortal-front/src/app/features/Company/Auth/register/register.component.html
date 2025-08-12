@@ -1,0 +1,76 @@
+<div class="page">
+  <p-card>
+        <h2 class="text-center">Register Company</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-grid">
+          <div class="form-field">
+            <label for="nameAr">Arabic Name*</label>
+            <input
+              pInputText
+              id="nameAr"
+              formControlName="nameAr"
+              [ngClass]="{'ng-dirty': registerForm.get('nameAr')?.touched && registerForm.get('nameAr')?.errors}"
+            />
+            <small class="error-message" *ngIf="registerForm.get('nameAr')?.touched">
+              {{ getErrorMessage('nameAr') }}
+            </small>
+          </div>
+
+          <div class="form-field">
+            <label for="nameEn">English Name*</label>
+            <input
+              pInputText
+              id="nameEn"
+              formControlName="nameEn"
+              [ngClass]="{'ng-dirty': registerForm.get('nameEn')?.touched && registerForm.get('nameEn')?.errors}"
+            />
+            <small class="error-message" *ngIf="registerForm.get('nameEn')?.touched">
+              {{ getErrorMessage('nameEn') }}
+            </small>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email*</label>
+            <input
+              pInputText
+              id="email"
+              type="email"
+              formControlName="email"
+              [ngClass]="{'ng-dirty': registerForm.get('email')?.touched && registerForm.get('email')?.errors}"
+            />
+            <small class="error-message" *ngIf="registerForm.get('email')?.touched">
+              {{ getErrorMessage('email') }}
+            </small>
+          </div>
+
+          <div class="form-field">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              pInputText
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              [ngClass]="{'ng-dirty': registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.errors}"
+            />
+            <small class="error-message" *ngIf="registerForm.get('phoneNumber')?.touched">
+              {{ getErrorMessage('phoneNumber') }}
+            </small>
+          </div>
+
+          <div class="form-field">
+            <label for="websiteUrl">Website URL</label>
+            <input
+              pInputText
+              id="websiteUrl"
+              formControlName="websiteUrl"
+              [ngClass]="{'ng-dirty': registerForm.get('websiteUrl')?.touched && registerForm.get('websiteUrl')?.errors}"
+            />
+            <small class="error-message" *ngIf="registerForm.get('websiteUrl')?.touched">
+              {{ getErrorMessage('websiteUrl') }}
+            </small>
+          </div>
+
+          <div class="form-actions">
+            <p-button label="Register" type="submit" [disabled]="registerForm.invalid"></p-button>
+          </div>
+        </form>
+      </p-card>
+    </div>

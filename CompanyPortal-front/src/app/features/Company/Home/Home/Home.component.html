@@ -1,0 +1,41 @@
+<div class="page">
+  <p-toast></p-toast>
+  <p-card>
+    <ng-container *ngIf="profile">
+      <h2>Welcome, {{ profile.nameEn }}</h2>
+
+      <div class="logo-section">
+        <div class="logo-container">
+          <img *ngIf="!previewUrl && profile.logoPath" [src]="img" alt="Current Logo" class="logo" />
+          <img *ngIf="previewUrl" [src]="previewUrl" alt="Preview" class="logo preview" />
+          <div class="logo-actions">
+            <p-fileUpload
+              #fileUpload
+              mode="basic"
+              chooseLabel="Choose Logo"
+              [auto]="false"
+              accept="image/*"
+              (onSelect)="onFileSelect($event)"
+              [customUpload]="true"
+              [showUploadButton]="false"
+              [showCancelButton]="false">
+            </p-fileUpload>
+            <p-button 
+              *ngIf="selectedFile"
+              label="Upload" 
+              icon="pi pi-upload" 
+              (onClick)="onUpload()"
+              [loading]="isLoading">
+            </p-button>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-details">
+        <p><strong>Arabic Name:</strong> {{ profile.nameAr }}</p>
+        <p><strong>English Name:</strong> {{ profile.nameEn }}</p>
+        <p><strong>Email:</strong> {{ profile.email }}</p>
+      </div>
+    </ng-container>
+  </p-card>
+</div>

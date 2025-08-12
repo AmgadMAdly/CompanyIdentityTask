@@ -1,0 +1,47 @@
+<div class="page">
+  <p-card>
+    <h2 class="text-center">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-field">
+        <label for="email">Email*</label>
+        <input
+          pInputText
+          id="email"
+          type="email"
+          formControlName="email"
+          [ngClass]="{'ng-dirty': loginForm.get('email')?.touched && loginForm.get('email')?.errors}"
+        />
+        <small class="error-message" *ngIf="loginForm.get('email')?.touched">
+          {{ getError('email') }}
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="password">Password*</label>
+        <p-password
+          id="password"
+          formControlName="password"
+          [toggleMask]="true"
+          [feedback]="false"
+          [ngClass]="{'ng-dirty': loginForm.get('password')?.touched && loginForm.get('password')?.errors}"
+        ></p-password>
+        <small class="error-message" *ngIf="loginForm.get('password')?.touched">
+          {{ getError('password') }}
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <p-button
+          label="Login"
+          type="submit"
+          [disabled]="loginForm.invalid || isLoading"
+          [loading]="isLoading"
+        ></p-button>
+      </div>
+
+      <div class="text-center">
+        <a routerLink="/auth/register">Don't have an account? Register here</a>
+      </div>
+    </form>
+  </p-card>
+</div>
